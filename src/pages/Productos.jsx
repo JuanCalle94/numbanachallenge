@@ -6,15 +6,18 @@ import FilterProducts from "../components/FilterProducts";
 
 function Productos() {
 
-  const {productsLength,currentProducts,paginate,productsPerPage, setActiveCategory} = useContext(ProductContext);
+  const {productsLength,currentProducts,paginate,productsPerPage, setActiveCategory, activeCategory} = useContext(ProductContext);
   
   return (
     <>
       <main className="container">
-        <FilterProducts
-        setActiveCategory={setActiveCategory}
-        />
-        <h2 className="main__tittle">Productos</h2>
+        <div className="main__nav">
+        <h2 className="main__nav__tittle">Productos</h2>
+          <FilterProducts
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+          />
+        </div>
         <div className="products">
           {currentProducts && currentProducts.map((product) => {
             return <ProductCard {...product} key={product.id} />;

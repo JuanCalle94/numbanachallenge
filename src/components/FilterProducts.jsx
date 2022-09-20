@@ -1,13 +1,16 @@
 import React  from "react";
 
-function FilterProducts({setActiveCategory}) {
+function FilterProducts({setActiveCategory, activeCategory}) {
 
     return (
       <>
-        <div className="nav__general">
-          <button onClick={()=>{setActiveCategory(1)}}>Nombre</button>
-          <button onClick={()=>{setActiveCategory(2)}}>Precio asc</button>
-          <button onClick={()=>{setActiveCategory(3)}}>Precio desc</button>
+        <div className="filter">
+          <p className="filter__tittle">Filtrar:</p>
+          <div className="filter__buttons">
+            <button className={activeCategory === 1 ? 'selected' : null} onClick={()=>{setActiveCategory(1)}}>Nombre</button>
+            <button className={activeCategory === 2 ? 'selected' : null} onClick={()=>{setActiveCategory(2)}}>Precio asc</button>
+            <button className={activeCategory === 3 ? 'selected' : null} onClick={()=>{setActiveCategory(3)}}>Precio desc</button>
+          </div>
         </div>
       </>
     );

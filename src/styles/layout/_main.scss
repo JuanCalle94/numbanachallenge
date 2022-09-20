@@ -1,9 +1,16 @@
-.main__tittle {
-    font-size: 4rem;
-    font-weight: $bold;
-    color: $darkgrey;
+.main__nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     margin: 30px 0px;
-} 
+
+    &__tittle {
+        font-size: 4rem;
+        font-weight: $bold;
+        color: $darkgrey;
+    }
+}
 
 .products {
     @include grid (1, 2rem);
