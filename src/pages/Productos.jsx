@@ -1,31 +1,28 @@
-import { React, useState, useEffect } from "react";
-import { getData } from "../services/getData";
+import { React, useContext } from "react";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
+import { ProductContext } from "../context/productContext";
+import Paginate from "../components/Paginate";
 
 function Productos() {
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getData({ path: "list" })
-      .then((result) => {
-        setProducts(result.data.slice(0, 10));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const {productsLength,currentProducts,paginate,productsPerPage} = useContext(ProductContext);
 
   return (
     <>
       <Header />
       <main className="container">
         <h2>Productos</h2>
-        <div className="row">
-          {products.map((product) => {
+        <div className="products">
+          {currentProducts && currentProducts.map((product) => {
             return <ProductCard {...product} key={product.id} />;
           })}
         </div>
+        <Paginate
+        productsPerPage = {productsPerPage}
+        totalProducts = {productsLength}
+        paginate = {paginate}
+        />
       </main>
     </>
   );
