@@ -116,7 +116,7 @@ function Carro() {
             {cartItems.length === 0 ? (
               <p>Tu Carrito esta Vacio</p>
             ) : (
-              <div className="products">
+              <div className="carro__order__products">
                 {cartItems.map((item) => {
                   return <ProductCart {...item} key={item.id} />;
                 })}

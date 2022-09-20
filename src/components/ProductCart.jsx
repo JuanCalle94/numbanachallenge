@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 function ProductCart(props) {
 
   const {deleteItemInCart,addItemToCart} = useContext(CartContext);
-  
+
   return (
     <>
       <div className="productcart">
@@ -15,6 +15,7 @@ function ProductCart(props) {
           alt="defaultimg"
         />
         <div className="productcart__info">
+          <div>
           <h3 className="productcart__tittle">{props.nombre}</h3>
           <div className="productcart__price__container">
             <div>
@@ -25,10 +26,11 @@ function ProductCart(props) {
               </p>
             </div>
           </div>
-          <div>
-            <button onClick={()=> addItemToCart(props)}>+</button>
+          </div>
+          <div className="productcart__buttons__container">
+            <button className="productcart__buttons plas" onClick={()=> addItemToCart(props)}>+</button>
             <p>{props.amount}</p>
-            <button onClick={()=> deleteItemInCart(props)}>-</button>
+            <button className="productcart__buttons" onClick={()=> deleteItemInCart(props)}>x</button>
           </div>
         </div>
       </div>
