@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0px;
+    align-items: center;
+    border-bottom: solid 0.1px $lightgrey;
+
+    &__logo {
+        width: 40%;
+    }
+
+    &__carrito {
+        font-size: 1.4rem;
+        padding: 10px 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: $lightpurple;
+        border-radius: 10px;
+        font-weight: $bold;
+
+        .fa-cart-shopping {
+            font-size: 1.8rem;
+        }
+    }
+}
