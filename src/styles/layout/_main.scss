@@ -1,3 +1,18 @@
+.main__tittle {
+    font-size: 4rem;
+    font-weight: $bold;
+    color: $darkgrey;
+    margin: 30px 0px;
+} 
+
 .products {
-    @include grid (1, 2rem)
+    @include grid (1, 2rem);
+
+    @include tablet {
+        @include grid (2, 2rem)
+    }
+
+    @include desktop {
+        @include grid (4, 2rem)
+    }
 }

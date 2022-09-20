@@ -7,6 +7,14 @@
 
     &__logo {
         width: 40%;
+
+        @include tablet {
+            width: 30%;
+        }
+
+        @include desktop {
+            width: 17%;
+        }
     }
 
     &__carrito {

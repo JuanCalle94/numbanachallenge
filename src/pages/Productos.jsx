@@ -12,7 +12,7 @@ function Productos() {
     <>
       <Header />
       <main className="container">
-        <h2>Productos</h2>
+        <h2 className="main__tittle">Productos</h2>
         <div className="products">
           {currentProducts && currentProducts.map((product) => {
             return <ProductCard {...product} key={product.id} />;

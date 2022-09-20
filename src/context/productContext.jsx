@@ -19,12 +19,12 @@ export function ProductProvider({ children }) {
       });
   }, []);
 
-    // Get current posts
+    // Obtengo lo productos
     const indexOfLastProducts = currentPage * productsPerPage;
     const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
     const currentProducts = products.slice(indexOfFirstProducts, indexOfLastProducts);
   
-    // Change page
+    // Cambio de pagina
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
   const values = { productsLength:products.length , currentProducts, paginate, productsPerPage};
