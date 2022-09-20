@@ -6,8 +6,8 @@ export const ProductContext = createContext();
 export function ProductProvider({ children }) {
 
   const [products, setProducts] = useState([]);
-  const [filtered, setFiltered] = useState([]); // Filtro de los productos por categoria
-  const [activeCategory, setActiveCategory] = useState(0); // Activamos categorias para hacer un target (Todos sera la activa por defecto)
+  const [filtered, setFiltered] = useState([]); // Filtro de los productos
+  const [activeCategory, setActiveCategory] = useState(0); // Activamos filtros para hacer un target (Todos sera la activa por defecto)
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
 
