@@ -14,13 +14,26 @@ export function ProductProvider({ children }) {
   useEffect(() => {
     getData({ path: "list" })
       .then((result) => {
-        setProducts(result.data);
-        setFiltered(result.data);
+        if(activeCategory === 0){
+          setProducts(result.data);
+          setFiltered(result.data);
+        }
+        if(activeCategory === 1){
+          setFiltered(result.data.sort((a, b)=>{return a.nombre.localeCompare(b.nombre)}));
+        }
+        if (activeCategory === 2){
+          const filteredAsc = result.data.sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio));
+          setFiltered(filteredAsc);
+        }
+        if (activeCategory === 3){
+          const filteredDesc = result.data.sort((a, b) => parseFloat(b.precio) - parseFloat(a.precio));
+          setFiltered(filteredDesc);
+      }
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [activeCategory]);
 
     // Obtengo lo productos
     const indexOfLastProducts = currentPage * productsPerPage;
@@ -30,7 +43,7 @@ export function ProductProvider({ children }) {
     // Cambio de pagina
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  const values = { products, productsLength:products.length , currentProducts, paginate, productsPerPage, setFiltered, activeCategory, setActiveCategory};
+  const values = { productsLength:products.length , currentProducts, paginate, productsPerPage, setActiveCategory};
 
   return (
     <ProductContext.Provider value={values}>{children}</ProductContext.Provider>

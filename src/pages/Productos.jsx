@@ -6,14 +6,12 @@ import FilterProducts from "../components/FilterProducts";
 
 function Productos() {
 
-  const {products,productsLength,currentProducts,paginate,productsPerPage,setFiltered, activeCategory, setActiveCategory} = useContext(ProductContext);
+  const {productsLength,currentProducts,paginate,productsPerPage, setActiveCategory} = useContext(ProductContext);
+  
   return (
     <>
       <main className="container">
         <FilterProducts
-        products={products}
-        setFiltered={setFiltered}
-        activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
         />
         <h2 className="main__tittle">Productos</h2>
