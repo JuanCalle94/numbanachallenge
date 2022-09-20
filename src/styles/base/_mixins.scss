@@ -1,0 +1,6 @@
+@mixin grid ($columnas,$espaciado) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    grid-gap: $espaciado;
+    grid-auto-rows: minmax(100px, auto);
+  }
