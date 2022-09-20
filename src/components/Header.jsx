@@ -1,8 +1,20 @@
-import React  from "react";
+import React,  { useContext, useEffect, useState  } from "react";
+import { CartContext } from "../context/CartContext";
 import logo from "../assets/img/numbanalogo.png";
 import { Link } from "react-router-dom";
 
 function Header() {
+
+  const [cartLength , setCartLength] = useState(0);
+
+  const { cartItems } = useContext(CartContext);
+
+  useEffect(() => {
+    setCartLength(
+    cartItems.reduce(
+      (previous,current) => previous + current.amount,0)
+    )
+  }, [cartItems])
 
   return (
     <>
@@ -16,10 +28,11 @@ function Header() {
         />
         </Link>
         <Link to="/carro">
-        <a className="header__carrito" href="/">
-            <p>Carrito</p> 
+        <button className="header__carrito">
+            <p className="header__carrito__length">{cartLength}</p>
+            <p className="header__carrito__name">Carrito</p> 
             <i className="fa-solid fa-cart-shopping"></i>
-        </a>
+        </button>
         </Link>
 
       </header>

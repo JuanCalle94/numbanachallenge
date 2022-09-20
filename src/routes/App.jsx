@@ -13,9 +13,9 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <Header />
         <ProductProvider>
         <CartProvider>
+        <Header />
           <Routes>
             <Route path="/" element={<Productos />} />
             <Route path="/carro" element={<Carro />} />
