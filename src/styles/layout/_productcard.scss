@@ -52,10 +52,12 @@
     }
 
     &__button__carrito {
+      cursor: pointer;
         padding: 10px 12px 10px 10px;
         border-radius: 5px;
         background-color: $purple;
         color: $lightpurple;
+        border: none;
     }
   }
 }

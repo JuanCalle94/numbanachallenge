@@ -46,6 +46,8 @@ export function ProductProvider({ children }) {
   const values = { productsLength:products.length , currentProducts, paginate, productsPerPage, setActiveCategory, activeCategory};
 
   return (
-    <ProductContext.Provider value={values}>{children}</ProductContext.Provider>
+    <ProductContext.Provider value={values}>
+      {children}
+    </ProductContext.Provider>
   );
 }

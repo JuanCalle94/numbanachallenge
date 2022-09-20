@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
+import { CartContext } from "../context/CartContext";
 import image from "../assets/img/defaultimg.png";
 
 function ProductCard(props) {
+
+  const {addItemToCart} = useContext(CartContext);
+
   return (
     <>
       <div className="productcard">
-        <img className="productcard__img" src={props.banner ? props.banner : image} alt="defaultimg" />
+        <img
+          className="productcard__img"
+          src={props.banner ? props.banner : image}
+          alt="defaultimg"
+        />
         <div className="productcard__info">
           <h3 className="productcard__tittle">{props.nombre}</h3>
           <div className="productcard__price__container">
@@ -16,9 +24,11 @@ function ProductCard(props) {
                 {props.precio}
               </p>
             </div>
-            <a className="productcard__button__carrito" href="/">
+            <button
+             onClick={()=> addItemToCart(props)}
+             className="productcard__button__carrito" type="submit">
               <i className="fa-solid fa-cart-shopping"></i>
-            </a>
+            </button>
           </div>
         </div>
       </div>

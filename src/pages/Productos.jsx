@@ -1,6 +1,6 @@
 import { React, useContext} from "react";
 import ProductCard from "../components/ProductCard";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 import Paginate from "../components/Paginate";
 import FilterProducts from "../components/FilterProducts";
 
