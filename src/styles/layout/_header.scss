@@ -18,8 +18,7 @@
     }
 
     &__carrito {
-        font-size: 1.4rem;
-        padding: 10px 25px;
+        padding: 10px 20px 10px 18px;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -27,6 +26,15 @@
         border-radius: 10px;
         font-weight: $bold;
         color: $purple;
+
+        p {
+            display: none;
+            font-size: 1.4rem;
+
+            @include desktop {
+                display: inline-block;
+            }
+        }
 
         .fa-cart-shopping {
             font-size: 1.8rem;

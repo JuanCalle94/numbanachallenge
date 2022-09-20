@@ -1,0 +1,89 @@
+.carro__container {
+    height: 70vh;
+}
+
+.carro {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+
+    @include desktop {
+        flex-direction:row;
+    }
+
+    &__tittle {
+        font-size: 3rem;
+        font-weight: $bold;
+        color: $darkgrey;
+        margin: 20px 0px;
+    } 
+
+    &__data {
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 50px;
+
+            button {
+                @include desktop {
+                    width: 65%;
+                }
+                border: none;
+                border-radius: 5px;
+                font-size: 1.4rem;
+                font-weight: $regular;
+                background-color: $purple;
+                color: $lightpurple;
+                padding: 10px 0px;
+            }
+        }
+        
+        &__form & {
+            &__div {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                @include desktop {
+                    width: 65%;
+                }
+
+                .error {
+                    font-size: 1rem;
+                    color:red;
+                }
+                
+                label {
+                    font-size: 1.4rem;
+                    font-weight: $light;
+                }
+
+                input {
+
+                    font-size: 1.4rem;
+                    font-weight: $light;
+                    border: none;
+                    background-color: $lightgrey;
+                    padding: 10px 20px;
+                }
+            }
+        }
+
+        @include desktop {
+            width: 65%;
+        }
+    }
+
+    &__order {
+
+        @include desktop {
+            width: 30%;
+        }
+    }
+}

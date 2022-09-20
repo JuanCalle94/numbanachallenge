@@ -16,7 +16,7 @@ function Header() {
         </Link>
         <Link to="/carro">
         <a className="header__carrito" href="/">
-            Carrito
+            <p>Carrito</p> 
             <i className="fa-solid fa-cart-shopping"></i>
         </a>
         </Link>

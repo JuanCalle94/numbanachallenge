@@ -14,7 +14,8 @@ function Productos() {
         products={products}
         setFiltered={setFiltered}
         activeCategory={activeCategory}
-        setActiveCategory={setActiveCategory}/>
+        setActiveCategory={setActiveCategory}
+        />
         <h2 className="main__tittle">Productos</h2>
         <div className="products">
           {currentProducts && currentProducts.map((product) => {

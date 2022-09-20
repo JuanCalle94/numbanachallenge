@@ -4,9 +4,10 @@ import { Formik } from "formik";
 function Carro() {
   return (
     <>
-      <h2>Carrito de compras</h2>
-      <div>
-        <div>
+    <div className="container carro__container">
+    <h2 className="carro__tittle">Carrito de compras</h2>
+      <div className="carro">
+        <div className="carro__data">
           <h3>Datos del pedido</h3>
           <Formik
             initialValues={{ nombre: "", telefono: "", email: "" }}
@@ -54,8 +55,8 @@ function Carro() {
               handleSubmit,
               isSubmitting,
             }) => (
-              <form onSubmit={handleSubmit}>
-                <div>
+              <form className="carro__data__form" onSubmit={handleSubmit}>
+                <div className="carro__data__div">
                   <label htmlFor="nombre">Nombre completo</label>
                   <input
                     type="text"
@@ -65,9 +66,9 @@ function Carro() {
                     onBlur={handleBlur}
                     value={values.nombre}
                   />
-                  {errors.nombre && touched.nombre && errors.nombre}
+                  <p className="error">{errors.nombre && touched.nombre && errors.nombre}</p>
                 </div>
-                <div>
+                <div className="carro__data__div">
                   <label htmlFor="telefono">Telefono</label>
                   <input
                     type="text"
@@ -77,9 +78,9 @@ function Carro() {
                     onBlur={handleBlur}
                     value={values.telefono}
                   />
-                  {errors.telefono && touched.telefono && errors.telefono}
+                  <p className="error">{errors.telefono && touched.telefono && errors.telefono}</p>
                 </div>
-                <div>
+                <div className="carro__data__div">
                   <label htmlFor="email">Correo electronico</label>
                   <input
                     type="email"
@@ -89,19 +90,21 @@ function Carro() {
                     onBlur={handleBlur}
                     value={values.email}
                   />
-                  {errors.email && touched.email && errors.email}
+                  <p className="error">{errors.email && touched.email && errors.email}</p>
                 </div>
                 <button type="submit" disabled={isSubmitting}>
-                  Submit
+                  Enviar
                 </button>
               </form>
             )}
           </Formik>
         </div>
-        <div>
+        <div className="carro__order">
           <h3>Mi orden</h3>
         </div>
       </div>
+    </div>
+
     </>
   );
 }

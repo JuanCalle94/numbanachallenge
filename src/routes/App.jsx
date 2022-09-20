@@ -6,6 +6,7 @@ import NotFound from "../pages/NotFound";
 import { ProductProvider } from "../context/productContext";
 import "../styles/app.scss";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </ProductProvider>
+        <Footer />
       </Layout>
     </BrowserRouter>
   );
