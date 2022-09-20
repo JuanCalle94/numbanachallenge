@@ -5,11 +5,13 @@ import Carro from "../pages/Carro";
 import NotFound from "../pages/NotFound";
 import { ProductProvider } from "../context/productContext";
 import "../styles/app.scss";
+import Header from "../components/Header";
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
+        <Header />
         <ProductProvider>
           <Routes>
             <Route path="/" element={<Productos />} />

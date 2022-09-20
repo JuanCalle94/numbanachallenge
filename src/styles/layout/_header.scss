@@ -6,14 +6,14 @@
     border-bottom: solid 0.1px $lightgrey;
 
     &__logo {
-        width: 40%;
+        width: 60%;
 
         @include tablet {
-            width: 30%;
+            width: 50%;
         }
 
         @include desktop {
-            width: 17%;
+            width: 70%;
         }
     }
 

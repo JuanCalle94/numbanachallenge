@@ -1,4 +1,4 @@
-import { createContext, React, useState, useEffect } from "react";
+import React , { createContext, useState, useEffect } from "react";
 import { getData } from "../services/getData";
 
 export const ProductContext = createContext();
@@ -6,6 +6,8 @@ export const ProductContext = createContext();
 export function ProductProvider({ children }) {
 
   const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]); // Filtro de los productos por categoria
+  const [activeCategory, setActiveCategory] = useState(0); // Activamos categorias para hacer un target (Todos sera la activa por defecto)
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
 
@@ -13,6 +15,7 @@ export function ProductProvider({ children }) {
     getData({ path: "list" })
       .then((result) => {
         setProducts(result.data);
+        setFiltered(result.data);
       })
       .catch((err) => {
         console.log(err);
@@ -22,12 +25,12 @@ export function ProductProvider({ children }) {
     // Obtengo lo productos
     const indexOfLastProducts = currentPage * productsPerPage;
     const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
-    const currentProducts = products.slice(indexOfFirstProducts, indexOfLastProducts);
-  
+    const currentProducts = filtered.slice(indexOfFirstProducts, indexOfLastProducts);
+
     // Cambio de pagina
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  const values = { productsLength:products.length , currentProducts, paginate, productsPerPage};
+  const values = { products, productsLength:products.length , currentProducts, paginate, productsPerPage, setFiltered, activeCategory, setActiveCategory};
 
   return (
     <ProductContext.Provider value={values}>{children}</ProductContext.Provider>
